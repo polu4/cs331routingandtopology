@@ -1,0 +1,76 @@
+BGP routing table entry for 78.46.0.0/15, version 455384628
+Paths: (16 available, best #1, table default)
+  Not advertised to any peer
+  49544 24940
+    208.115.137.50 from 208.115.137.50 (188.122.95.107)
+      Origin IGP, metric 9130, valid, external, best (AS Path), rpki validation-state: valid
+      Community: 0:13101 0:49666 24940:24940 49544:24000 49544:24031 65000:51110 65000:65049 65000:65115 65000:65156
+      Last update: Mon Sep 29 18:52:29 2025
+  199524 1299 24940
+    208.115.136.42 from 208.115.136.42 (10.255.18.65)
+      Origin IGP, valid, external, rpki validation-state: valid
+      Last update: Tue Sep 23 04:44:34 2025
+  16552 1299 24940
+    208.115.137.69 from 208.115.137.69 (46.31.238.17)
+      Origin IGP, valid, external, rpki validation-state: valid
+      Community: 1299:30000 16552:9100 16552:10500 16552:20840 16552:40014
+      Last update: Wed Oct 15 07:33:49 2025
+  32709 6939 24940
+    208.115.136.134 from 208.115.136.134 (63.134.128.248)
+      Origin IGP, valid, external, rpki validation-state: valid
+      Last update: Wed Oct 15 07:33:51 2025
+  19151 2914 24940
+    208.115.136.18 from 208.115.136.18 (66.216.0.41)
+      Origin IGP, metric 0, valid, external, rpki validation-state: valid
+      Last update: Sun Oct  5 08:46:42 2025
+  19653 2914 24940
+    208.115.136.133 from 208.115.136.133 (67.219.192.18)
+      Origin IGP, valid, external, rpki validation-state: valid
+      Last update: Sun Oct  5 08:46:56 2025
+  293 2914 24940
+    208.115.136.58 from 208.115.136.58 (134.55.200.167)
+      Origin IGP, metric 1, valid, external, rpki validation-state: valid
+      Last update: Thu Aug 14 03:37:46 2025
+  17350 1299 24940
+    208.115.136.95 from 208.115.136.95 (141.160.0.65)
+      Origin IGP, valid, external, rpki validation-state: valid
+      Community: 1299:5000 17350:5000 17350:5124
+      Last update: Tue Sep 23 04:44:23 2025
+  17350 1299 24940
+    208.115.136.5 from 208.115.136.5 (141.160.0.66)
+      Origin IGP, valid, external, rpki validation-state: valid
+      Community: 1299:5000 17350:5000 17350:5124
+      Last update: Wed Oct 22 00:02:07 2025
+  14630 1299 24940
+    208.115.137.200 from 208.115.137.200 (199.230.0.152)
+      Origin IGP, valid, external, rpki validation-state: valid
+      Community: 1299:5000 1299:30000 14630:4 14630:5000
+      Last update: Tue Sep 23 04:44:23 2025
+  14630 1299 24940
+    208.115.137.100 from 208.115.137.100 (199.230.0.153)
+      Origin IGP, valid, external, rpki validation-state: valid
+      Community: 1299:5000 1299:30000 14630:4 14630:5000
+      Last update: Tue Sep 23 04:44:24 2025
+  53828 2914 24940
+    208.115.136.220 from 208.115.136.220 (207.200.192.81)
+      Origin IGP, valid, external, rpki validation-state: valid
+      Community: 2914:410 2914:1201 2914:2202 2914:3200 24940:24940 53828:10 53828:1001
+      Last update: Wed Oct 15 08:50:09 2025
+  8220 1299 24940
+    208.115.137.35 from 208.115.137.35 (212.74.90.12)
+      Origin IGP, valid, external, rpki validation-state: valid
+      Community: 1299:30000 8220:1299 8220:64006 8220:65001 8220:65250 8220:65400
+      Last update: Thu Oct  9 17:02:10 2025
+  20253 1299 24940
+    208.115.137.216 from 208.115.137.216 (217.20.50.48)
+      Origin IGP, valid, external, rpki validation-state: valid
+      Last update: Tue Sep 23 04:44:52 2025
+  32590 1299 24940
+    208.115.136.103 from 208.115.136.103 (162.254.193.250)
+      Origin EGP, valid, external, rpki validation-state: valid
+      Community: 1299:30000 17152:0
+      Last update: Fri Oct 17 22:17:42 2025
+  852 3320 3320 3320 24940
+    208.115.136.67 from 208.115.136.67 (154.11.0.140)
+      Origin IGP, metric 20234, valid, external, rpki validation-state: valid
+      Last update: Thu Oct  2 09:25:52 2025

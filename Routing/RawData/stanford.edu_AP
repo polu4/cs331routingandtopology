@@ -1,0 +1,88 @@
+BGP routing table entry for 171.64.0.0/14, version 589963624
+Paths: (18 available, best #1, table default)
+  Not advertised to any peer
+  293 2153 32
+    208.115.136.58 from 208.115.136.58 (134.55.200.167)
+      Origin IGP, metric 1, valid, external, best (AS Path), rpki validation-state: not found
+      Last update: Mon Oct  6 05:26:54 2025
+  19151 2152 46749 32
+    208.115.136.18 from 208.115.136.18 (66.216.0.41)
+      Origin IGP, metric 49, valid, external, rpki validation-state: not found
+      Last update: Thu Oct 23 16:56:19 2025
+  49544 2152 46749 32
+    208.115.137.50 from 208.115.137.50 (188.122.95.107)
+      Origin IGP, metric 4800, valid, external, rpki validation-state: not found
+      Community: 2152:65298 2152:65436 2152:65438 2152:65439 2152:65498 2152:65511 2153:65418 2153:65436 2153:65438 46749:65498 49544:14000 49544:14106
+      Last update: Thu Oct 23 16:56:07 2025
+  6939 46749 46749 32
+    208.115.136.37 from 208.115.137.251 (208.115.137.251)
+      Origin IGP, metric 469, valid, external, rpki validation-state: not found
+      Community: 24115:6939 24115:24115 24115:65023
+      Large Community: 24115:1000:2 24115:1001:1 24115:1002:1 24115:1003:0 24115:1004:6939
+      Last update: Sat Oct 25 17:22:29 2025
+  6939 46749 46749 32
+    208.115.136.37 from 208.115.137.252 (208.115.137.252)
+      Origin IGP, metric 469, valid, external, rpki validation-state: not found
+      Community: 24115:6939 24115:24115 24115:65023
+      Large Community: 24115:1000:2 24115:1001:1 24115:1002:2 24115:1003:1 24115:1004:6939
+      Last update: Sat Oct 25 17:22:29 2025
+  16552 6939 46749 46749 32
+    208.115.137.69 from 208.115.137.69 (46.31.238.17)
+      Origin IGP, valid, external, rpki validation-state: not found
+      Community: 16552:9150 16552:10500 16552:20840 16552:40014
+      Last update: Thu Oct 23 16:55:33 2025
+  32709 6939 46749 46749 32
+    208.115.136.134 from 208.115.136.134 (63.134.128.248)
+      Origin IGP, valid, external, rpki validation-state: not found
+      Last update: Thu Oct 23 16:56:00 2025
+  19653 6939 46749 46749 32
+    208.115.136.37 from 208.115.136.133 (67.219.192.18)
+      Origin IGP, valid, external, rpki validation-state: not found
+      Last update: Thu Oct 23 16:55:35 2025
+  17350 6939 46749 46749 32
+    208.115.136.37 from 208.115.136.95 (141.160.0.65)
+      Origin IGP, valid, external, rpki validation-state: not found
+      Community: 17350:5001 17350:5124
+      Last update: Thu Oct 23 16:55:33 2025
+  17350 6939 46749 46749 32
+    208.115.136.37 from 208.115.136.5 (141.160.0.66)
+      Origin IGP, valid, external, rpki validation-state: not found
+      Community: 17350:5001 17350:5124
+      Last update: Thu Oct 23 16:55:34 2025
+  852 6939 46749 46749 32
+    208.115.136.67 from 208.115.136.67 (154.11.0.140)
+      Origin IGP, metric 0, valid, external, rpki validation-state: not found
+      Last update: Thu Oct 23 16:56:06 2025
+  14630 6939 46749 46749 32
+    208.115.136.37 from 208.115.137.200 (199.230.0.152)
+      Origin IGP, valid, external, rpki validation-state: not found
+      Community: 6939:5001 14630:4 14630:5001
+      Last update: Thu Oct 23 16:55:33 2025
+  14630 6939 46749 46749 32
+    208.115.136.37 from 208.115.137.100 (199.230.0.153)
+      Origin IGP, valid, external, rpki validation-state: not found
+      Community: 6939:5001 14630:4 14630:5001
+      Last update: Thu Oct 23 16:55:33 2025
+  53828 6939 46749 46749 32
+    208.115.136.37 from 208.115.136.220 (207.200.192.81)
+      Origin IGP, valid, external, rpki validation-state: not found
+      Community: 53828:11 53828:1001
+      Last update: Thu Oct 23 16:55:53 2025
+  8220 6939 46749 46749 32
+    208.115.137.35 from 208.115.137.35 (212.74.90.12)
+      Origin IGP, valid, external, rpki validation-state: not found
+      Community: 8220:65001 8220:65250 8220:65401
+      Last update: Thu Oct 23 16:55:33 2025
+  20253 6939 46749 46749 32
+    208.115.136.37 from 208.115.137.216 (217.20.50.48)
+      Origin IGP, valid, external, rpki validation-state: not found
+      Last update: Sat Oct 25 17:22:41 2025
+  32590 6939 46749 46749 32
+    208.115.136.37 from 208.115.136.103 (162.254.193.250)
+      Origin EGP, valid, external, rpki validation-state: not found
+      Community: 6939:1000 6939:7243 6939:8840 6939:9001 17152:1
+      Last update: Thu Oct 23 16:55:42 2025
+  199524 11164 2152 2152 46749 32
+    208.115.136.42 from 208.115.136.42 (10.255.18.65)
+      Origin IGP, valid, external, rpki validation-state: not found
+      Last update: Thu Oct 23 16:56:32 2025
