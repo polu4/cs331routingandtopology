@@ -1,0 +1,9 @@
+BGP routing table entry for 78.46.0.0/15, version 455384628
+Paths: (16 available, best #1, table default)
+  Not advertised to any peer
+  49544 24940
+    208.115.137.50 from 208.115.137.50 (188.122.95.107)
+      Origin IGP, metric 9130, valid, external, best (AS Path), rpki validation-state: valid
+      Community: 0:13101 0:49666 24940:24940 49544:24000 49544:24031 65000:51110 65000:65049 65000:65115 65000:65156
+      Last update: Mon Sep 29 18:52:30 2025
+

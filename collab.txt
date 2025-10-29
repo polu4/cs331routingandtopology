@@ -1,0 +1,13 @@
+Authors: Luke Poley
+Original by Amy Csizmar Dalal, https://github.com/acdalal/cs331-projects
+
+---visuals---
+Typst.app
+https://github.com/Robotechnic/diagraph 
+https://typst.app/universe/package/diatypst
+
+---info---
+traceroute by Van Jacobson
+https://whatismyipaddress.com/ip-lookup
+https://www.submarinecablemap.com/
+https://atlas.ripe.net/

@@ -1,0 +1,10 @@
+BGP routing table entry for 137.158.0.0/16, version 1030006993
+Paths: (16 available, best #1, table default)
+  Not advertised to any peer
+  49544 2018 36982
+    208.115.137.50 from 208.115.137.50 (188.122.95.107)
+      Origin IGP, metric 8910, valid, external, otc 8714, best (AS Path), rpki validation-state: not found
+      Community: 0:16276 0:33941 8714:65010 8714:65011 8714:65023 49544:24000 49544:24044
+      Large Community: 8714:1000:2 8714:1001:1 8714:1001:2
+      Last update: Thu Oct 23 02:15:40 2025
+

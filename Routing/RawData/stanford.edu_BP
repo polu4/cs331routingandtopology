@@ -1,0 +1,8 @@
+BGP routing table entry for 171.64.0.0/14, version 589963624
+Paths: (18 available, best #1, table default)
+  Not advertised to any peer
+  293 2153 32
+    208.115.136.58 from 208.115.136.58 (134.55.200.167)
+      Origin IGP, metric 1, valid, external, best (AS Path), rpki validation-state: not found
+      Last update: Mon Oct  6 05:26:53 2025
+

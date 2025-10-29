@@ -1,0 +1,8 @@
+BGP routing table entry for 34.96.0.0/14, version 725100536
+Paths: (16 available, best #1, table default)
+  Not advertised to any peer
+  199524 15169 396982
+    208.115.136.42 from 208.115.136.42 (10.255.18.65)
+      Origin IGP, valid, external, best (AS Path), rpki validation-state: valid
+      Last update: Wed Oct 22 13:14:01 2025
+

@@ -1,0 +1,9 @@
+BGP routing table entry for 220.181.0.0/19, version 852318597
+Paths: (16 available, best #1, table default)
+  Not advertised to any peer
+  16552 1299 4134 23724
+    208.115.137.69 from 208.115.137.69 (46.31.238.17)
+      Origin IGP, valid, external, best (AS Path), rpki validation-state: not found
+      Community: 1299:25000 16552:9100 16552:10500 16552:20840 16552:40014
+      Last update: Wed Oct 15 07:33:54 2025
+

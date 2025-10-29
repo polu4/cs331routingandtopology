@@ -1,0 +1,9 @@
+BGP routing table entry for 192.30.252.0/24, version 192672960
+Paths: (16 available, best #1, table default)
+  Not advertised to any peer
+  49544 36459 36459
+    208.115.137.50 from 208.115.137.50 (188.122.95.107)
+      Origin IGP, metric 1900, valid, external, best (AS Path), rpki validation-state: valid
+      Community: 49544:14000 49544:14151
+      Last update: Sun Aug 24 00:00:38 2025
+
