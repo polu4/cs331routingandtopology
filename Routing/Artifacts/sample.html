@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  <title>An uninteresting blog about Computer Routing</title>
+</head>
+
+  <body>
+    <!-- HTML from https://niklasfasching.de/posts/just-enough-css/ -->
+    <header class='header'>
+</header>
+
+    <div class="container">
+      <h1 class="title">An uninteresting blog about Computer Routing
+        <br>
+        <span class="subtitle"></span>
+      </h1>
+      <p>
+        You may have heard that the internet is a best-effort delivery system. Given that the content of the internet is always changing the servers that host that content need to change too. This requires the internet to be a collection of Autonomous Systems (ASes) that are governed by business and policy rules. ASes are large networks or groups of networks that have a unified routing policy that are usually under a single entity that can direct the traffic within its own network. My main analysis here is focused on the <a href="https://www.cloudflare.com/learning/security/glossary/what-is-bgp/">Border Gateway Protocol</a> that dictates how each AS connects so your origin and destination have a way to connect and often multiple! Below are the results of viewing the public BGP feeds (Route-Views), how they compare to traceroutes, the other domains, and the ASes themselves.<sup class="footnote-reference"><a id="footnote-reference-1" href="#footnote-1">1</a></sup>
+      </p>
+          <img src="network-of-networks.svg" alt="a topology of the internet being a network of networks">
+          
+          <div id="outline-container-headline-1" class="outline-2">
+          <h2 id="headline-1">
+          Why are Traceroutes and Route-Views Different?
+          </h2>
+            <h3 id="headline-1.1">
+            Wait, what exactly is a traceroute again?
+            </h3>
+              <div id="outline-text-headline-1" class="outline-text-2">
+                <p>
+                A traceroute, just like requesting for a web page is a packet that in this instance is designed to send back the information of what network nodes/routers it passes through to get to its destination. Traceroutes also tell you the IP addresses of each hop, the time of each hop, and if available, their hostnames, allowing users to identify the network infrastructure .
+              </p>
+              </div>
+            <h3 id="headline-1.1">
+            Route-Views? 
+            </h3>
+            <div id="outline-text-headline-1" class="outline-text-2">
+              <p>
+              Route-Views, while also a utility, is a project that acts as an observatory for the Internet's routing information by collecting BGP (<a href="https://www.cloudflare.com/learning/security/glossary/what-is-bgp/">Border Gateway Protocol</a>) routing table information from diverse points across the globe. The routing tables store the information on each <a href="https://www.cloudflare.com/learning/network-layer/what-is-an-autonomous-system/">Autonomous Systems (ASes)</a> so it knows what other ASes it can get to by communicating with its neighbors. It functions by maintaining dedicated Route Collectors (RCs) such as the one in Chicago which collect information from volunteer routers (BGP Peers) from hundreds of ASes. The data these peers share is both their actively selected path and all available routes for every Internet domain. The tool itself is critical for many tasks such as researchers and engineers to analyze the topology and stability of the Internet and to diagnose wide-area routing issues. In theory, any IP could serve as a Route Collector such as Carleton College, while Route Collectors require special setup and more overhead to be publicly accessible that make it a better option to connect to the RC in Chicago.
+            </p>
+            </div>
+            <img src="autonomous-system-diagram.svg" alt="a autonomous-system-diagram around a globe">
+          </div>
+          <h2 id="headline-1">
+           The preferred routes between Carleton and each endpoint
+          </h2>
+         
+          <p>
+            The End-to-End AS paths are formed by concatenating Carleton College's route prefix, AS 26557 advertising to AS 6939 (Route Collector in Chicago). The path from Carleton to its primary upstream provider AS 6939 (CenturyLink) is extended due to AS Path connecting to the Chicago Route Collector.
+           </p>
+          <ul>
+              <li>Example the route to <a href="https://www.db.com">db.com</a> (AS 396982) becomes <code class="verbatim">6557 26557 26557 6939 199524 15169 396982</code></li>
+          </ul>
+           <p> 
+            However, when comparing these paths against the actual paths obtained via traceroute for academic destinations like stanford.edu or uct.ac.za, there is zero overlap in the intermediate Autonomous Systems, as Carleton's router overrides the commercial path and directs academic traffic through Research & Education paths like AS 1659 and AS 4079. Consequently, the Route-Views data exclusively includes Tier-1 commercial ASes such as AS 1299 (Telia) that the R&E traffic skips, while the traceroute data exclusively contains the R&E backbone ASes such as internet2 (for nationwide access) and northernlights as a regional provider.
+          </p>
+          <ul>
+          <li>A comparsion example would be for stanford.
+            <ul>
+              <li>The traceroute shows the packet going to the<ul>
+              <li> Twin Cities &#8594; Fargo &#8594; Sacramento &#8594; Sunnyvalle &#8594; Los Angeles &#8594; Stanford.</li></ul>
+          </li>
+              <li>While the E2E AS preferred path goes from <ul>
+              <li> Chicago &#8594; Berkeley (293) &#8594; Cypress (2153) &#8594; Stanford (32)</li></ul>
+          </li>
+            </ul>
+          </li>
+        </ul>
+        <p>Here we see that the shortest end-to-end path is to regex101.com (6 AS hops), while the longest is to baidu.com (8 AS hops).</p>  
+
+        <h2 id="headline-1">
+            Route Overlap and Variation 
+          </h2>
+         
+          <p>
+            The End-to-End AS paths are formed by concatenating Carleton College's route prefix, AS 26557 advertising to AS 6939 (Route Collector in Chicago). The path from Carleton to its primary upstream provider AS 6939 (CenturyLink) is extended due to AS Path connecting to the Chicago Route Collector.
+           </p>
+
+
+
+
+       
+          <div id="outline-container-headline-3" class="outline-2">
+          <h2 id="headline-3">
+          Footnotes
+          </h2>
+          </div>
+          <div class="footnotes">
+          <hr class="footnotes-separatator">
+          <div class="footnote-definitions">
+          <div class="footnote-definition">
+          <sup id="footnote-1"><a href="#footnote-reference-1">1</a></sup>
+          <div class="footnote-body">
+          <ul>
+          <li><a href="https://www.cloudflare.com/learning/security/glossary/what-is-bgp/">https://www.cloudflare.com/learning/security/glossary/what-is-bgp/</a></li>
+          <li><a href="https://www.cloudflare.com/learning/network-layer/what-is-an-autonomous-system/">https://www.cloudflare.com/learning/network-layer/what-is-an-autonomous-system//</a></li>
+          </ul>
+          </div> 
+          </div>
+          <div class="footnote-definition">
+          <sup id="footnote-2"><a href="#footnote-reference-2">2</a></sup>
+          <div class="footnote-body">
+          <ul>
+          <li><a href="http://artequalswork.com/posts/fluid-type/">http://artequalswork.com/posts/fluid-type/</a></li>
+          <li><a href="http://madebymike.com.au/writing/fluid-type-calc-examples">http://madebymike.com.au/writing/fluid-type-calc-examples</a></li>
+          </ul>
+          </div>
+          </div>
+          </div>
+          </div>
+
+    </div>
+  </body>
+</html>
