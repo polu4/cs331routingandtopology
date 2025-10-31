@@ -5,6 +5,7 @@ Original by Amy Csizmar Dalal, https://github.com/acdalal/cs331-projects
 Typst.app
 https://github.com/Robotechnic/diagraph 
 https://typst.app/universe/package/diatypst
+https://niklasfasching.de/posts/just-enough-css/
 
 ---info---
 traceroute by Van Jacobson
@@ -12,3 +13,5 @@ https://whatismyipaddress.com/ip-lookup
 https://www.submarinecablemap.com/
 https://atlas.ripe.net/
 https://www.whatismyip.net/tools/arin-lookup.php#bannerresults
+https://www.cloudflare.com/learning/security/glossary/what-is-bgp/
+https://www.cloudflare.com/learning/network-layer/what-is-an-autonomous-system/
