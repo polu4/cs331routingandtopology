@@ -11,3 +11,4 @@ traceroute by Van Jacobson
 https://whatismyipaddress.com/ip-lookup
 https://www.submarinecablemap.com/
 https://atlas.ripe.net/
+https://www.whatismyip.net/tools/arin-lookup.php#bannerresults
