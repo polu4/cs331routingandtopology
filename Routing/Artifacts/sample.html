@@ -15,10 +15,10 @@
     <div class="container">
       <h1 class="title">An uninteresting blog about Computer Routing
         <br>
-        <span class="subtitle"></span>
+        <span class="subtitle">Luke Poley - CS 331</span>
       </h1>
       <p>
-        You may have heard that the internet is a best-effort delivery system. Given that the content of the internet is always changing the servers that host that content need to change too. This requires the internet to be a collection of Autonomous Systems (ASes) that are governed by business and policy rules. ASes are large networks or groups of networks that have a unified routing policy that are usually under a single entity that can direct the traffic within its own network. My main analysis here is focused on the <a href="https://www.cloudflare.com/learning/security/glossary/what-is-bgp/">Border Gateway Protocol</a> that dictates how each AS connects so your origin and destination have a way to connect and often multiple! Below are the results of viewing the public BGP feeds (Route-Views), how they compare to traceroutes, the other domains, and the ASes themselves.<sup class="footnote-reference"><a id="footnote-reference-1" href="#footnote-1">1</a></sup>
+        You may have heard that the internet is a best-effort delivery system. Given that the content of the internet is always changing the servers that host that content need to change too. This requires the internet to be a collection of Autonomous Systems (ASes) that are governed by business and policy rules. ASes are large networks or groups of networks that have a unified routing policy that are usually under a single entity that can direct the traffic within its own network. My main analysis here is focused on the <a href="https://www.cloudflare.com/learning/security/glossary/what-is-bgp/">Border Gateway Protocol</a> that dictates how each AS connects so your origin and destination have a way to connect and often multiple! Below are the results of viewing the public BGP feeds (Route-Views), how they compare to traceroutes, the other domains, and the ASes themselves.<sup class="footnote-reference"><a id="footnote-reference-1" href="#footn?ote-1">1</a></sup>
       </p>
           <img src="network-of-networks.svg" alt="a topology of the internet being a network of networks">
           
@@ -31,10 +31,10 @@
             </h3>
               <div id="outline-text-headline-1" class="outline-text-2">
                 <p>
-                A traceroute, just like requesting for a web page is a packet that in this instance is designed to send back the information of what network nodes/routers it passes through to get to its destination. Traceroutes also tell you the IP addresses of each hop, the time of each hop, and if available, their hostnames, allowing users to identify the network infrastructure .
+                A traceroute, just like requesting for a web page is a packet that in this instance is designed to send back the information of what network nodes/routers it passes through to get to its destination. Traceroutes also tell you the IP addresses of each hop, the time of each hop, and if available, their hostnames, allowing users to identify the network infrastructure.
               </p>
               </div>
-            <h3 id="headline-1.1">
+            <h3 id="headline-1.2">
             Route-Views? 
             </h3>
             <div id="outline-text-headline-1" class="outline-text-2">
@@ -42,9 +42,9 @@
               Route-Views, while also a utility, is a project that acts as an observatory for the Internet's routing information by collecting BGP (<a href="https://www.cloudflare.com/learning/security/glossary/what-is-bgp/">Border Gateway Protocol</a>) routing table information from diverse points across the globe. The routing tables store the information on each <a href="https://www.cloudflare.com/learning/network-layer/what-is-an-autonomous-system/">Autonomous Systems (ASes)</a> so it knows what other ASes it can get to by communicating with its neighbors. It functions by maintaining dedicated Route Collectors (RCs) such as the one in Chicago which collect information from volunteer routers (BGP Peers) from hundreds of ASes. The data these peers share is both their actively selected path and all available routes for every Internet domain. The tool itself is critical for many tasks such as researchers and engineers to analyze the topology and stability of the Internet and to diagnose wide-area routing issues. In theory, any IP could serve as a Route Collector such as Carleton College, while Route Collectors require special setup and more overhead to be publicly accessible that make it a better option to connect to the RC in Chicago.
             </p>
             </div>
-            <img src="autonomous-system-diagram.svg" alt="a autonomous-system-diagram around a globe">
+            <img src="Routing-1.png" alt="Routing table best path versus all paths">
           </div>
-          <h2 id="headline-1">
+          <h2 id="headline-2">
            The preferred routes between Carleton and each endpoint
           </h2>
          
@@ -71,17 +71,157 @@
         </ul>
         <p>Here we see that the shortest end-to-end path is to regex101.com (6 AS hops), while the longest is to baidu.com (8 AS hops).</p>  
 
-        <h2 id="headline-1">
+        <h2 id="headline-3">
             Route Overlap and Variation 
           </h2>
          
           <p>
-            The End-to-End AS paths are formed by concatenating Carleton College's route prefix, AS 26557 advertising to AS 6939 (Route Collector in Chicago). The path from Carleton to its primary upstream provider AS 6939 (CenturyLink) is extended due to AS Path connecting to the Chicago Route Collector.
+            
+            The low variance with domestic sites like db.com (with an AS Path Length Difference of only 1) and corndog.io (with an AS Path Length Difference of 2) show low variance in the table below shows how the results from having many direct peering or simple transit options, meaning the routes are consistently short and efficient. Conversely, foreign or intercontinental sites like uct.ac.za (South Africa) and baidu.com (China) exhibit high variance (differences of 3 and 4, respectively). High variance in path length, along with the presence of repeated ASes (like the multiple AS 4134 prepends for the Chinese prefix), reflects the challenges of long-haul routing. The traffic must often pass through a greater variety of international carriers and submarine cables, leading to more diverse and sometimes strategically lengthened (or "engineered") paths.
            </p>
+          <img src="autonomous-system-diagram.svg" alt="a autonomous-system-diagram around a globe">
+          <div class="table_component" role="region" tabindex="0">
+          <table>
+          <h3 id="headline-3.1">
+           AS Frequency per Endpoint  
+          </h3>
+              <thead>
+                  <tr>
+                      <th>Endpoint</th> 
+                      <th>Total Routes</th>
+                      <th>Min Path Length</th>
+                      <th>Max Path Length</th>
+                      <th>Difference</th>
+                      <th>Median Path Length</th>
+                      <th>Average Path Length</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>stanford.edu</td>
+                      <td>18</td>
+                      <td>7</td>
+                      <td>10</td>
+                      <td>3</td>
+                      <td>9</td>
+                      <td>8.78</td>
+                  </tr>
+                  <tr>
+                      <td>uct.ac.za</td>
+                      <td>16</td>
+                      <td>7</td>
+                      <td>10</td>
+                      <td>3</td>
+                      <td>9</td>
+                      <td>8.75</td>
+                  </tr>
+                  <tr>
+                      <td>regex101.com</td>
+                      <td>16</td>
+                      <td>6</td>
+                      <td>9</td>
+                      <td>3</td>
+                      <td>8</td>
+                      <td>7.69</td>
+                  </tr>
+                  <tr>
+                      <td>db.com</td>
+                      <td>16</td>
+                      <td>7</td>
+                      <td>8</td>
+                      <td>1</td>
+                      <td>7</td>
+                      <td>7.25</td>
+                  </tr>
+                  <tr>
+                      <td>corndog.io </td>
+                      <td>16</td>
+                      <td>7</td>
+                      <td>9</td>
+                      <td>2</td>
+                      <td>8</td>
+                      <td>7.75</td>
+                  </tr>
+                  <tr>
+                      <td>baidu.com</td>
+                      <td>16</td>
+                      <td>8</td>
+                      <td>12</td>
+                      <td>4</td>
+                      <td>8</td>
+                      <td>8.25</td>
+                  </tr>
+              </tbody>
+          </table>
+          <p>
+          <h2 id="headline-4">
+           The Most Frequent Overall Routes
+          </h2>
+            
+            <ul>
+              <li>
+                AS <b>1299</b> (Arelion) is a highly critical and frequently used transit provider in the BGP routes, appearing a total of 28 times across all six endpoints analyzed. While the AS has a major presence in Amsterdam (one of the world's largest internet exchange points), its high usage is primarily due to its status as a Tier 1 global backbone that connects traffic worldwide. This global reach explains why it is highly utilized for traffic to various destinations, including those that might have African or German traffic components, as it is a default choice for high-volume, low-latency transit across continents. It also connected to domestic websites such as corndog.io that would eventually arrive in San Francisco showing Arelion's presence across the globe and the United States.
+              </li>
+              <br>
+              <li>
+                AS <b>4134</b> (China Telecom) appears a total of 19 times across the routes, with all occurrences concentrated in the paths to baidu.com. This high frequency is primarily due to a technique called <a href="https://www.juniper.net/documentation/us/en/software/junos/routing-policy/topics/concept/policy-prepending-as-numbers-to-bgp-as-paths.html">AS-prepending</a>, where the AS number is intentionally repeated in the path (e.g., 4134 4134 4134 4134 4134 23724). This repetition is a common BGP traffic engineering method used to artificially lengthen the AS path for specific routes, making them appear "less desirable."
+              </li>
+            </ul>
+            
+          </p>
+          <table>
+            <h2 id="headline-5">
+           AS Frequency per Endpoint
+          </h2>
+            <thead>
+                <tr>
+                    <th>Endpoint / Prefix</th>
+                    <th>Top 3 Most Frequent ASes (excluding the Origin AS)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>stanford.edu (171.64.0.0/14)</td>
+                    <td>46749 (13 times), 6939 (9 times), 2152 (3 times)</td>
+                </tr>
+                <tr>
+                    <td>uct.ac.za (137.158.0.0/16)</td>
+                    <td>20080 (9 times), 2914 (6 times), 1299 (5 times)</td>
+                </tr>
+                <tr>
+                    <td>regex101.com (78.46.0.0/15)</td>
+                    <td>1299 (8 times), 2914 (5 times), 17350 (2 times)</td>
+                </tr>
+                <tr>
+                    <td>db.com (34.96.0.0/20)</td>
+                    <td>15169 (15 times), 49544 (1 time), 14016 (1 time)</td>
+                </tr>
+                <tr>
+                    <td>corndog.io (192.30.252.0/24)</td>
+                    <td>1299 (9 times), 6461 (2 times), 2914 (2 times)</td>
+                </tr>
+                <tr>
+                    <td>baidu.com (220.181.0.0/19)</td>
+                    <td>4134 (19 times), 1299 (6 times), 2914 / 3356 (3 times each)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+          The best BGP path selected for routing is typically composed of the most frequent and efficient ASes (like 1299 or 2914) that constitute the shortest route. However, other available paths demonstrate significant flexibility and complexity in inter-AS routing, often by substituting a single efficient transit AS with a longer chain. This is clearly seen in the Stanford route (171.64.0.0/14), where the optimal path includes the single transit AS 2153. Alternate, less preferred routes, replace 2153 with the two-hop sequence 2152 46749. This substitution directly reflects different peering or transit agreements where a peer is forced to use a less direct path, increasing the AS hop count and making it a less optimal route than the one selected as "best."
+        </p>
+        <h2 id="headline-6">
+           Network Topology Graph Updates
+          </h2>
+          Previouslly I made a Network Topology Graph to show the traceroutes to each website. Here is how I would update that graph with the BGP information.
+          <ul>
+            <li>
+              Completeness: BGP provides all available paths (up to 18 options for Stanford.edu), giving a complete picture of redundancy and path diversity. The Network Topology Graph only reveals the single path currently being used.
+            </li>
+            <li>
+              Policy vs. Reality: The BGP best path (e.g., 49544 2018 36982 for uct.ac.za) tells you the route the network prefers. A traceroute shows the actual IP path that may be affected by external forces such as <a href="https://www.cloudflare.com/learning/performance/what-is-load-balancing/">load balancing</a>.
+            </li>
 
-
-
-
+          </ul>
        
           <div id="outline-container-headline-3" class="outline-2">
           <h2 id="headline-3">
@@ -104,8 +244,7 @@
           <sup id="footnote-2"><a href="#footnote-reference-2">2</a></sup>
           <div class="footnote-body">
           <ul>
-          <li><a href="http://artequalswork.com/posts/fluid-type/">http://artequalswork.com/posts/fluid-type/</a></li>
-          <li><a href="http://madebymike.com.au/writing/fluid-type-calc-examples">http://madebymike.com.au/writing/fluid-type-calc-examples</a></li>
+          <li><a href="https://www.ipxo.com/blog/what-is-asn/">https://www.ipxo.com/blog/what-is-asn/</a></li>
           </ul>
           </div>
           </div>
